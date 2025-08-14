@@ -25,7 +25,7 @@
                 margin: 0 auto;
                 padding: 0;
                 font-size: 10pt;
-                transform: scale(0.75); /* Escala al 75% para asegurar el ajuste */
+                transform: scale(0.95); /* Escala al 95% para asegurar el ajuste */
                 transform-origin: top left;
             }
             #main-invoice, #advance-receipt {
@@ -40,6 +40,10 @@
             }
             th, td {
                 padding: 4px;
+            }
+            /* Acomodar la columna de descripción para que no se expanda */
+            #services-tbody .description-cell {
+                width: 50%;
             }
         }
         input, textarea, select {
@@ -339,7 +343,7 @@
 
             tbody.innerHTML = services.map(service => `
                 <tr class="border-b border-gray-200">
-                    <td class="py-4 px-4">
+                    <td class="py-4 px-4 description-cell">
                         <textarea data-id="${service.id}" data-field="description" rows="3" class="w-full p-2 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500">${service.description}</textarea>
                     </td>
                     <td class="py-4 px-4">
