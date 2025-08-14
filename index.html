@@ -45,6 +45,12 @@
             #services-tbody .description-cell {
                 width: 50%;
             }
+            /* SOLUCION PARA EL TEXTAREA EN IMPRESION */
+            textarea {
+                height: auto !important;
+                overflow: visible !important;
+                white-space: pre-wrap !important;
+            }
         }
         input, textarea, select {
             background-color: white !important;
@@ -234,7 +240,7 @@
                                     <span class="font-semibold text-lg">Anticipo:</span>
                                     <div class="input-with-dollar">
                                         <span>$</span>
-                                        <input type="number" id="advance-payment-input" class="w-32 p-2 border border-blue-300 rounded-lg text-right focus:outline-none focus:ring-2 focus:ring-blue-500" value="0">
+                                        <input type="number" id="advance-payment-input" class="w-32 p-2 border border-gray-300 rounded-lg text-right focus:outline-none focus:ring-2 focus:ring-blue-500" value="0">
                                     </div>
                                 </div>
                                 <div class="flex justify-between items-center text-2xl font-bold text-blue-700 border-t-2 border-gray-300 pt-4">
@@ -309,7 +315,7 @@
             date: new Date().toISOString().slice(0, 10),
         };
         let services = [
-            { id: 1, description: 'Descripción del servicio de construcción/pintura...', quantity: 1, price: 1000.00 },
+            { id: 1, description: '', quantity: 1, price: 0.00 },
         ];
         let advancePayment = 0;
 
@@ -344,7 +350,7 @@
             tbody.innerHTML = services.map(service => `
                 <tr class="border-b border-gray-200">
                     <td class="py-4 px-4 description-cell">
-                        <textarea data-id="${service.id}" data-field="description" rows="3" class="w-full p-2 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500">${service.description}</textarea>
+                        <textarea data-id="${service.id}" data-field="description" class="w-full p-2 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500">${service.description}</textarea>
                     </td>
                     <td class="py-4 px-4">
                         <input type="number" data-id="${service.id}" data-field="quantity" class="w-24 p-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500" value="${service.quantity}">
@@ -479,7 +485,15 @@
             }
 
             // Manejadores de impresión
+            function adjustAllTextareas() {
+                document.querySelectorAll('textarea').forEach(t => {
+                    t.style.height = 'auto';
+                    t.style.height = t.scrollHeight + 'px';
+                });
+            }
+
             document.getElementById('print-invoice-btn').addEventListener('click', () => {
+                adjustAllTextareas();
                 const mainInvoice = document.getElementById('main-invoice');
                 const advanceReceipt = document.getElementById('advance-receipt');
                 if (mainInvoice && advanceReceipt) {
@@ -491,6 +505,7 @@
             const printReceiptBtn = document.getElementById('print-advance-receipt-btn');
             if (printReceiptBtn) {
                 printReceiptBtn.addEventListener('click', () => {
+                    adjustAllTextareas();
                     const mainInvoice = document.getElementById('main-invoice');
                     const advanceReceipt = document.getElementById('advance-receipt');
                     if (mainInvoice && advanceReceipt) {
