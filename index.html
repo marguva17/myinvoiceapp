@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invoice Generator</title>
-    <!-- Tailwind CSS from CDN for a modern and responsive design -->
+    <title>Generador de Facturas</title>
+    <!-- Tailwind CSS desde CDN para un diseño moderno y responsive -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom styles for printing */
+        /* Estilos personalizados para impresión */
         @media print {
             body {
                 -webkit-print-color-adjust: exact;
@@ -25,7 +25,7 @@
                 margin: 0 auto;
                 padding: 0;
                 font-size: 10pt;
-                transform: scale(0.75); /* Scale to 75% to ensure it fits */
+                transform: scale(0.75); /* Escala al 75% para asegurar el ajuste */
                 transform-origin: top left;
             }
             #main-invoice, #advance-receipt {
@@ -49,24 +49,24 @@
 </head>
 <body class="bg-gray-100 font-sans">
     <div class="flex flex-col lg:flex-row p-4 gap-4 items-start min-h-screen">
-        <!-- Edit Panel -->
+        <!-- Panel de edición -->
         <div class="lg:w-1/3 bg-white p-6 rounded-2xl shadow-xl space-y-6 print-hidden overflow-y-auto max-h-screen sticky top-4">
-            <h2 class="text-2xl font-bold text-blue-700">Edit Information</h2>
+            <h2 class="text-2xl font-bold text-blue-700">Editar Información</h2>
 
-            <!-- Company Details -->
+            <!-- Detalles de la Compañía -->
             <div class="space-y-4">
-                <h3 class="text-xl font-bold text-gray-800 border-b pb-2">Your Company</h3>
+                <h3 class="text-xl font-bold text-gray-800 border-b pb-2">Tu Compañía</h3>
                 <div>
-                    <label class="block text-gray-600">Name</label>
-                    <input type="text" id="company-name-input" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Company Name">
+                    <label class="block text-gray-600">Nombre</label>
+                    <input type="text" id="company-name-input" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Nombre de la Compañía">
                 </div>
                 <div>
-                    <label class="block text-gray-600">Address</label>
-                    <input type="text" id="company-address-input" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Address">
+                    <label class="block text-gray-600">Dirección</label>
+                    <input type="text" id="company-address-input" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Dirección">
                 </div>
                 <div>
-                    <label class="block text-gray-600">Phone</label>
-                    <input type="tel" id="company-phone-input" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Phone">
+                    <label class="block text-gray-600">Teléfono</label>
+                    <input type="tel" id="company-phone-input" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Teléfono">
                 </div>
                 <div>
                     <label class="block text-gray-600">Email</label>
@@ -74,42 +74,42 @@
                 </div>
             </div>
 
-            <!-- Invoice Details -->
+            <!-- Detalles de la Factura -->
             <div class="space-y-4">
-                <h3 class="text-xl font-bold text-gray-800 border-b pb-2">Invoice Details</h3>
+                <h3 class="text-xl font-bold text-gray-800 border-b pb-2">Detalles de la Factura</h3>
                 <div>
-                    <label class="block text-gray-600">Invoice No.</label>
-                    <input type="text" id="invoice-number-input" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Invoice Number">
+                    <label class="block text-gray-600">Nº de Factura</label>
+                    <input type="text" id="invoice-number-input" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Número de Factura">
                 </div>
                 <div>
-                    <label class="block text-gray-600">Date</label>
+                    <label class="block text-gray-600">Fecha</label>
                     <input type="date" id="invoice-date-input" class="w-full p-2 border border-gray-300 rounded-lg">
                 </div>
             </div>
 
-            <!-- Client Details -->
+            <!-- Detalles del Cliente -->
             <div class="space-y-4">
-                <h3 class="text-xl font-bold text-gray-800 border-b pb-2">Client Information</h3>
+                <h3 class="text-xl font-bold text-gray-800 border-b pb-2">Información del Cliente</h3>
                 <div>
-                    <label class="block text-gray-600">Name</label>
-                    <input type="text" id="client-name-input" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Client Name">
+                    <label class="block text-gray-600">Nombre</label>
+                    <input type="text" id="client-name-input" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Nombre del Cliente">
                 </div>
                 <div>
-                    <label class="block text-gray-600">Address</label>
-                    <input type="text" id="client-address-input" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Client Address">
+                    <label class="block text-gray-600">Dirección</label>
+                    <input type="text" id="client-address-input" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Dirección del Cliente">
                 </div>
                 <div>
-                    <label class="block text-gray-600">Phone</label>
-                    <input type="tel" id="client-phone-input" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Client Phone">
+                    <label class="block text-gray-600">Teléfono</label>
+                    <input type="tel" id="client-phone-input" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Teléfono del Cliente">
                 </div>
                 <div>
                     <label class="block text-gray-600">Email</label>
-                    <input type="email" id="client-email-input" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Client Email">
+                    <input type="email" id="client-email-input" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Email del Cliente">
                 </div>
             </div>
         </div>
 
-        <!-- Invoice Render Area -->
+        <!-- Área de renderizado del invoice -->
         <div id="invoice-render-area" class="lg:w-2/3 flex-1">
             <div id="invoice-container" class="w-full max-w-3xl bg-white shadow-xl rounded-2xl overflow-hidden print:shadow-none print:m-0">
                 <!-- Main Invoice Section -->
@@ -117,25 +117,25 @@
                     <!-- Header Section -->
                     <header class="flex flex-col md:flex-row justify-between items-start mb-8 border-b-2 border-gray-200 pb-6">
                         <div class="flex-1 mb-4 md:mb-0">
-                            <h1 class="text-4xl font-extrabold text-blue-700">INVOICE</h1>
+                            <h1 class="text-4xl font-extrabold text-blue-700">FACTURA</h1>
                         </div>
-                        <!-- Company and Invoice Info -->
+                        <!-- Información de la compañía y factura -->
                         <div class="flex-1 md:text-right">
                             <h2 class="text-2xl font-bold text-gray-800" id="display-company-name"></h2>
                             <p class="text-gray-600" id="display-company-address"></p>
-                            <p class="text-gray-600">Phone: <span id="display-company-phone"></span></p>
+                            <p class="text-gray-600">Tel: <span id="display-company-phone"></span></p>
                             <p class="text-gray-600">Email: <span id="display-company-email"></span></p>
                             <div class="mt-4 text-sm text-gray-600">
-                                <p>Invoice No.: <span id="display-invoice-number"></span></p>
-                                <p>Date: <span id="display-invoice-date"></span></p>
+                                <p>Nº de Factura: <span id="display-invoice-number"></span></p>
+                                <p>Fecha: <span id="display-invoice-date"></span></p>
                             </div>
                         </div>
                     </header>
 
-                    <!-- Bill To -->
+                    <!-- Facturar a -->
                     <section class="mb-8">
                         <div class="bg-blue-50 p-6 rounded-xl shadow-inner">
-                            <h3 class="text-lg font-bold mb-2 text-blue-800">Bill To</h3>
+                            <h3 class="text-lg font-bold mb-2 text-blue-800">Facturar a</h3>
                             <div class="flex flex-col space-y-2">
                                 <p class="font-bold" id="display-client-name"></p>
                             </div>
@@ -144,14 +144,14 @@
 
                     <!-- Services Table -->
                     <section class="mb-8">
-                        <h3 class="text-xl font-bold mb-4 text-gray-800">Service Description</h3>
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">Descripción de los Servicios</h3>
                         <div class="overflow-x-auto">
                             <table class="w-full text-left table-auto border-collapse">
                                 <thead>
                                     <tr class="bg-gray-200">
-                                        <th class="py-3 px-4 font-bold text-gray-600 rounded-tl-xl">Service Description</th>
-                                        <th class="py-3 px-4 font-bold text-gray-600">Quantity</th>
-                                        <th class="py-3 px-4 font-bold text-gray-600">Unit Price</th>
+                                        <th class="py-3 px-4 font-bold text-gray-600 rounded-tl-xl">Descripción del Servicio</th>
+                                        <th class="py-3 px-4 font-bold text-gray-600">Cantidad</th>
+                                        <th class="py-3 px-4 font-bold text-gray-600">Precio Unitario</th>
                                         <th class="py-3 px-4 font-bold text-gray-600 rounded-tr-xl">Total</th>
                                         <th class="py-3 px-4 rounded-tr-xl print-hidden"></th>
                                     </tr>
@@ -160,7 +160,7 @@
                             </table>
                         </div>
                         <button id="add-service-btn" class="mt-4 px-6 py-3 bg-blue-500 text-white font-bold rounded-lg shadow-md hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105 print-hidden">
-                            + Add Service
+                            + Agregar Servicio
                         </button>
                     </section>
 
@@ -173,11 +173,11 @@
                                     <span class="text-lg">$<span id="subtotal-display"></span></span>
                                 </div>
                                 <div class="flex justify-between items-center text-gray-700">
-                                    <span class="font-semibold text-lg">Advance Payment:</span>
-                                    <input type="number" id="advance-payment-input" class="w-32 p-2 border border-blue-300 rounded-lg text-right focus:outline-none focus:ring-2 focus:ring-blue-500" value="0">
+                                    <span class="font-semibold text-lg">Anticipo:</span>
+                                    <input type="number" id="advance-payment-input" class="w-32 p-2 border border-blue-300 rounded-lg text-right focus:outline-none focus:ring-2 focus:ring-blue-500" value="0" placeholder="$">
                                 </div>
                                 <div class="flex justify-between items-center text-2xl font-bold text-blue-700 border-t-2 border-gray-300 pt-4">
-                                    <span>Total Due:</span>
+                                    <span>Total a Pagar:</span>
                                     <span>$<span id="total-display"></span></span>
                                 </div>
                             </div>
@@ -187,10 +187,10 @@
                     <!-- Buttons Section -->
                     <footer class="mt-8 flex flex-col sm:flex-row justify-center sm:justify-end gap-4 print-hidden">
                         <button id="print-invoice-btn" class="px-6 py-3 bg-green-500 text-white font-bold rounded-lg shadow-md hover:bg-green-600 transition duration-300 ease-in-out transform hover:scale-105">
-                            Print Invoice (PDF)
+                            Imprimir Factura (PDF)
                         </button>
                         <button id="print-advance-receipt-btn" class="px-6 py-3 bg-purple-500 text-white font-bold rounded-lg shadow-md hover:bg-purple-600 transition duration-300 ease-in-out transform hover:scale-105">
-                            Print Advance Receipt (PDF)
+                            Imprimir Recibo de Anticipo (PDF)
                         </button>
                     </footer>
                 </div>
@@ -199,30 +199,30 @@
                 <div id="advance-receipt" class="p-6 md:p-10 print-hidden">
                     <header class="flex flex-col md:flex-row justify-between items-start mb-8 border-b-2 border-gray-200 pb-6">
                         <div class="flex-1 mb-4 md:mb-0">
-                            <h1 class="text-4xl font-extrabold text-purple-700">ADVANCE RECEIPT</h1>
-                            <p class="text-gray-600">Invoice No.: <span id="receipt-invoice-number"></span></p>
-                            <p class="text-gray-600">Date: <span id="receipt-invoice-date"></span></p>
+                            <h1 class="text-4xl font-extrabold text-purple-700">RECIBO DE ANTICIPO</h1>
+                            <p class="text-gray-600">Nº de Factura: <span id="receipt-invoice-number"></span></p>
+                            <p class="text-gray-600">Fecha: <span id="receipt-invoice-date"></span></p>
                         </div>
-                        <!-- Company information, now fetched from the edit panel -->
+                        <!-- Información de la compañía, ahora obtenida del panel de edición -->
                         <div class="flex-1 md:text-right">
                             <h2 class="text-2xl font-bold text-gray-800" id="receipt-company-name"></h2>
                             <p class="text-gray-600" id="receipt-company-address"></p>
-                            <p class="text-gray-600">Phone: <span id="receipt-company-phone"></span></p>
+                            <p class="text-gray-600">Tel: <span id="receipt-company-phone"></span></p>
                             <p class="text-gray-600">Email: <span id="receipt-company-email"></span></p>
                         </div>
                     </header>
                     <div class="bg-purple-50 p-6 rounded-xl shadow-inner mb-8">
-                        <h3 class="text-lg font-bold mb-2 text-purple-800">Receipt for</h3>
+                        <h3 class="text-lg font-bold mb-2 text-purple-800">Recibo para</h3>
                         <p class="text-gray-700 font-semibold" id="receipt-client-name"></p>
                     </div>
                     <div class="flex justify-between items-center text-4xl font-bold text-purple-700 border-t-2 border-gray-300 pt-8">
-                        <span>Advance Payment Received:</span>
+                        <span>Anticipo Recibido:</span>
                         <span>$<span id="receipt-advance-amount"></span></span>
                     </div>
                     <div class="mt-16 text-center">
-                        <p class="text-gray-600 mb-2">Thank you for your business.</p>
+                        <p class="text-gray-600 mb-2">Gracias por su confianza.</p>
                         <div class="border-t border-gray-400 mt-12 w-1/2 mx-auto"></div>
-                        <p class="mt-2 text-gray-600">Signature of Receipt</p>
+                        <p class="mt-2 text-gray-600">Firma de Recibido</p>
                     </div>
                 </div>
             </div>
@@ -230,29 +230,29 @@
     </div>
 
     <script>
-        // Initial application data
+        // Definición de los datos iniciales de la aplicación
         let company = {
-            name: 'Fuente Painting and Service LLC',
-            address: '123 E. Main St., Charlotte, NC',
+            name: 'Fuente painting y service LLC',
+            address: '',
             phone: '704-968732',
             email: 'fuentepainting@gmail.com'
         };
         let client = {
-            name: 'Client Name',
-            address: 'Client Address',
+            name: 'Nombre del Cliente',
+            address: 'Dirección del Cliente',
             phone: '555-0000',
-            email: 'client@email.com'
+            email: 'cliente@email.com'
         };
         let invoice = {
             number: 'INV-001',
             date: new Date().toISOString().slice(0, 10),
         };
         let services = [
-            { id: 1, description: 'Detailed description of the construction/painting service...', quantity: 1, price: 1000.00 },
+            { id: 1, description: 'Descripción del servicio de construcción/pintura...', quantity: 1, price: 1000.00 },
         ];
         let advancePayment = 0;
 
-        // Function to update totals and display
+        // Función para actualizar los totales y el display
         function updateDisplay() {
             const subtotal = services.reduce((acc, service) => acc + (service.quantity * service.price), 0);
             const total = subtotal - advancePayment;
@@ -275,7 +275,7 @@
             }
         }
 
-        // Function to update the services table
+        // Función para actualizar la tabla de servicios
         function updateServicesTable() {
             const tbody = document.getElementById('services-tbody');
             if (!tbody) return;
@@ -289,7 +289,7 @@
                         <input type="number" data-id="${service.id}" data-field="quantity" class="w-24 p-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500" value="${service.quantity}">
                     </td>
                     <td class="py-4 px-4">
-                        <input type="number" data-id="${service.id}" data-field="price" class="w-32 p-2 border border-gray-300 rounded-lg text-right focus:outline-none focus:ring-2 focus:ring-blue-500" value="${service.price.toFixed(2)}">
+                        <input type="number" data-id="${service.id}" data-field="price" class="w-32 p-2 border border-gray-300 rounded-lg text-right focus:outline-none focus:ring-2 focus:ring-blue-500" value="${service.price.toFixed(2)}" placeholder="$">
                     </td>
                     <td class="py-4 px-4 font-bold text-gray-800">
                         $${(service.quantity * service.price).toFixed(2)}
@@ -304,16 +304,16 @@
                 </tr>
             `).join('');
 
-            // Adjust textarea height
+            // Ajustar la altura de las textareas
             tbody.querySelectorAll('textarea').forEach(textarea => {
                 textarea.style.height = 'auto';
                 textarea.style.height = textarea.scrollHeight + 'px';
             });
         }
 
-        // Function to attach event listeners
+        // Función para adjuntar los manejadores de eventos
         function attachEventListeners() {
-            // Handlers for edit panel fields
+            // Manejadores para los campos del panel de edición
             document.getElementById('company-name-input').addEventListener('input', (e) => {
                 company.name = e.target.value;
                 document.getElementById('display-company-name').innerText = company.name;
@@ -367,20 +367,20 @@
                 document.getElementById('receipt-client-email').innerText = client.email;
             });
 
-            // Handlers for invoice data fields
+            // Manejadores para los campos de datos del invoice
             document.getElementById('advance-payment-input').addEventListener('input', (e) => {
                 advancePayment = parseFloat(e.target.value) || 0;
                 updateDisplay();
             });
 
-            // Handler for add service button
+            // Manejador para agregar servicio
             document.getElementById('add-service-btn').addEventListener('click', () => {
                 services.push({ id: Date.now(), description: '', quantity: 1, price: 0 });
                 updateServicesTable();
                 updateDisplay();
             });
 
-            // Handlers for the services table
+            // Manejadores para la tabla de servicios
             const servicesTbody = document.getElementById('services-tbody');
             if (servicesTbody) {
                 servicesTbody.addEventListener('input', (e) => {
@@ -390,7 +390,7 @@
                     const value = target.value;
                     
                     if (target.tagName.toLowerCase() === 'textarea' && field === 'description') {
-                        // Logic to auto-resize textarea
+                        // Lógica para auto-redimensionar el textarea
                         target.style.height = 'auto';
                         target.style.height = target.scrollHeight + 'px';
                         services = services.map(service =>
@@ -398,7 +398,7 @@
                         );
                     } else {
                         services = services.map(service =>
-                            service.id === id ? { ...service, [field]: parseFloat(value) || value } : service
+                            service.id === id ? { ...service, [field]: parseFloat(value) || 0 } : service
                         );
                     }
                     updateDisplay();
@@ -414,7 +414,7 @@
                 });
             }
 
-            // Print handlers
+            // Manejadores de impresión
             document.getElementById('print-invoice-btn').addEventListener('click', () => {
                 const mainInvoice = document.getElementById('main-invoice');
                 const advanceReceipt = document.getElementById('advance-receipt');
@@ -438,7 +438,7 @@
             }
         }
 
-        // Function to update the edit panel with current data
+        // Función para actualizar el panel de edición con los datos actuales
         function updateEditorPanel() {
             document.getElementById('company-name-input').value = company.name;
             document.getElementById('company-address-input').value = company.address;
@@ -453,7 +453,7 @@
             document.getElementById('invoice-number-input').value = invoice.number;
             document.getElementById('invoice-date-input').value = invoice.date;
 
-            // Update the invoice view
+            // Actualizar la vista de la factura
             updateInvoiceDisplay();
         }
 
@@ -504,11 +504,11 @@
             updateDisplay();
         }
 
-        // Initialization function
+        // Función de inicialización
         function initializeApp() {
-            attachEventListeners(); // Attach events once
+            attachEventListeners(); // Adjunta los eventos una sola vez
             
-            // Initialize input fields with default data
+            // Inicializar campos de entrada con los datos por defecto
             updateEditorPanel();
         }
 
